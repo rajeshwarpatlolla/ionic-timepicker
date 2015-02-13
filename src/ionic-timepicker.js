@@ -1,8 +1,8 @@
 //By Rajeshwar Patlolla
 //https://github.com/rajeshwarpatlolla
 
-angular.module('rajeshwar-ionic-timepicker', ['ionic'])
-    .directive('ionicTimePicker', function ($ionicPopup) {
+angular.module('ionictimepicker', ['ionic', 'ionictimepicker.templates'])
+    .directive('ionicTimePicker', ['$ionicPopup', function ($ionicPopup) {
     return {
         restrict: 'AE',
         replace: true,
@@ -86,7 +86,7 @@ angular.module('rajeshwar-ionic-timepicker', ['ionic'])
                     };
 
                     $ionicPopup.show({
-                        templateUrl: '/templates/time-picker-12-hour.html',
+                        templateUrl: 'time-picker-12-hour.html',
                         title: '<strong>12-Hour Format</strong>',
                         subTitle: '',
                         scope: scope,
@@ -126,7 +126,7 @@ angular.module('rajeshwar-ionic-timepicker', ['ionic'])
                     scope.time.minutes = (objDate.getUTCMinutes());
 
                     $ionicPopup.show({
-                        templateUrl: '/templates/time-picker-24-hour.html',
+                        templateUrl: 'time-picker-24-hour.html',
                         title: '<strong>24-Hour Format</strong>',
                         subTitle: '',
                         scope: scope,
@@ -158,4 +158,4 @@ angular.module('rajeshwar-ionic-timepicker', ['ionic'])
 
         }
     };
-});
+}]);
