@@ -6,9 +6,9 @@
   ],
   "description": "A timepicker for Ionic framework",
   "main": [
-      "./dist/templates.js",
-      "./dist/ionic-timepicker.js",
-      "./dist/style.css"
+    "./dist/templates.js",
+    "./dist/ionic-timepicker.js",
+    "./dist/style.css"
   ],
   "keywords": [
     "ionic",
@@ -24,5 +24,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "ionic": "~0.9.27"
+  }
 }
