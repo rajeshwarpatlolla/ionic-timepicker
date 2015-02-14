@@ -13,16 +13,16 @@ This is a time picker for Ionic Framework's application.
 
 Use the below format in your template / html file
 
-    `<ionic-time-picker etime="slots[0].epochTime" format="12" step="15">`    
-    `....`
-    `</ionic-time-picker>`
+    <ionic-time-picker etime="slots[0].epochTime" format="12" step="15">    
+    ....
+    </ionic-time-picker>
 
 Use the below format in your corresponding template's controller
 
-    `$scope.slots = [`
-    `      {epochTime: 12600, step: 15, format: 12},`
-    `      {epochTime: 54900, step: 1, format: 24}`
-    ` ];`
+    $scope.slots = [
+          {epochTime: 12600, step: 15, format: 12},
+          {epochTime: 54900, step: 1, format: 24}
+     ];
 
 1) `ionic-time-picker` is the directive, to which we can pass required vales.
 
