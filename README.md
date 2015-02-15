@@ -34,7 +34,7 @@ Use the below format in your corresponding template's controller
 
 ##Versions:
 
-### 1) v0.1
+### 1) v0.1.1
 The whole time picker functionality has been implemented.
 
 ##Contact:
