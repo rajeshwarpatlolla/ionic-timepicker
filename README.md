@@ -1,13 +1,13 @@
 ##Introduction:
 
-This is a time picker for Ionic Framework's application.
+This is a time picker for Ionic Framework.
 
 [View Demo](http://rajeshwarpatlolla.github.io/TimePickerForIonicFramework/demo/ "Demo") 
 
 
 ##Follow the below mentioned steps.
 
-1) First, install node.js, bower, gulp.
+1) Install node.js, bower, gulp.
 
 ##How to use:
 
