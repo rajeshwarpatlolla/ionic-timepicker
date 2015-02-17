@@ -17,7 +17,7 @@ Use the below format in your template / html file
     ....
     </ionic-time-picker>
 
-Use the below format in your corresponding template's controller
+Use the below format in your template's corresponding controller
 
     $scope.slots = [
           {epochTime: 12600, step: 15, format: 12},
