@@ -14,7 +14,7 @@ This is a time picker for Ionic Framework.
 Use the below format in your template / html file
 
     <ionic-time-picker etime="slots[0].epochTime" format="12" step="15">    
-    ....
+      ....
     </ionic-time-picker>
 
 Use the below format in your template's corresponding controller
@@ -41,3 +41,7 @@ The whole time picker functionality has been implemented.
 gmail : rajeshwar.patlolla@gmail.com
 
 github : https://github.com/rajeshwarpatlolla
+
+twitter : https://twitter.com/rajeshwar_9032
+
+facebook : https://www.facebook.com/rajeshwarpatlolla
