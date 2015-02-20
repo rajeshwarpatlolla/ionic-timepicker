@@ -5,9 +5,9 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 [View Demo](http://rajeshwarpatlolla.github.io/TimePickerForIonicFramework/demo/ "Demo") 
 
 
-##Follow the below mentioned steps.
+##Prerequisites.
 
-1) Install node.js, bower, gulp.
+1) node.js, bower and gulp.
 
 ##How to use:
 
