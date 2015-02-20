@@ -11,6 +11,10 @@ This is a time picker for Ionic Framework.
 
 ##How to use:
 
+In your project repository install the ionic time picker using bower
+
+    bower install ionic-timepicker --save
+    
 Use the below format in your template / html file
 
     <ionic-time-picker etime="slots[0].epochTime" format="12" step="15">    
