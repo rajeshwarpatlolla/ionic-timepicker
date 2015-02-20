@@ -7,9 +7,9 @@ angular.module('ionictimepicker', ['ionic', 'ionictimepicker.templates'])
         restrict: 'AE',
         replace: true,
         scope: {
-            etime: '=etime',
-            format: '=format',
-            step: '=step'
+            etime: '=etime',        //epoch time getting from a template
+            format: '=format',      //format getting from a template
+            step: '=step'           //step getting from a template
         },
         link: function (scope, element, attrs) {
 
