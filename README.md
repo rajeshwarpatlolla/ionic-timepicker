@@ -1,6 +1,6 @@
 ##Introduction:
 
-This is a time picker for Ionic Framework.
+This is a `ionic-timepicker` bower component which can be used with any Ionic framework's application.
 
 [View Demo](http://rajeshwarpatlolla.github.io/TimePickerForIonicFramework/demo/ "Demo") 
 
@@ -50,7 +50,9 @@ Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`.
 ##Versions:
 
 ### 1) v0.2.0
-The whole time picker functionality has been implemented, and can be installed with `bower install ionic-timepicker`.
+The whole time picker functionality has been implemented, and can be installed with 
+    
+    bower install ionic-timepicker
 
 
 ##License:
