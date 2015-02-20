@@ -11,35 +11,45 @@ This is a time picker for Ionic Framework.
 
 ##How to use:
 
-In your project repository install the ionic time picker using bower
+1) In your project repository install the ionic time picker using bower
 
     bower install ionic-timepicker --save
     
-Use the below format in your template / html file
+2) In your application module inject the dependency `ionic-timepicker`, in order to work with the ionic time picker
+    
+    angular.module('modulename', ['ionic', 'ionic-timepicker']){
+    
+    }
+
+3) Then use the below format in your template / html file
 
     <ionic-time-picker etime="slots[0].epochTime" format="12" step="15">    
       ....
     </ionic-time-picker>
 
-Use the below format in your template's corresponding controller
+4) Use the below format in your template's corresponding controller
 
     $scope.slots = [
           {epochTime: 12600, step: 15, format: 12},
           {epochTime: 54900, step: 1, format: 24}
      ];
 
-1) `ionic-time-picker` is the directive, to which we can pass required vales.
+a) `ionic-time-picker` is the directive, to which we can pass required vales.
 
-2) `etime` takes epoch time.
+b) `etime` takes epoch time.
 	
-3) `format` indicates 12 hour or 24 hour format. It can take two values, 12 or 24.
+c) `format` indicates 12 hour or 24 hour format. It can take two values, 12 or 24.
 
-4) `step` indicates minute increment. It can take two values, 1 or 15.
+d) `step` indicates minute increment. It can take two values, 1 or 15.
 
+
+Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`. 
+
+ 
 ##Versions:
 
-### 1) v0.1.1
-The whole time picker functionality has been implemented.
+### 1) v0.2.0
+The whole time picker functionality has been implemented, and can be installed with `bower install ionic-timepicker`.
 
 ##Contact:
 gmail : rajeshwar.patlolla@gmail.com
