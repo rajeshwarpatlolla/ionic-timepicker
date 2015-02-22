@@ -15,20 +15,33 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 
     bower install ionic-timepicker --save
     
-2) In your application module inject the dependency `ionic-timepicker`, in order to work with the ionic time picker
+2) Then you can see the following directory structure see in your project folder
+   
+![12-Hour](https://lh3.googleusercontent.com/_s2lFLFfgYSUfhdmZO0r4w6td80dEErTN4pLc7Louo8=w163-h207-p-no "Directory Structure")
+
+Give the path of  `style.css, templates.js and ionic-timepicker.js` in your `index.html` file.
+
+    <link href="lib/ionic-timepicker/dist/style.css" rel="stylesheet">
+
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-timepicker/dist/templates.js"></script>
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.js"></script>
+    
+    
+3) In your application module inject the dependency `ionic-timepicker`, in order to work with the ionic time picker
     
     angular.module('modulename', ['ionic', 'ionic-timepicker']){
     
     }
 
-3) Use the below format in your template's corresponding controller
+4) Use the below format in your template's corresponding controller
 
     $scope.slots = [
           {epochTime: 12600, step: 15, format: 12},
           {epochTime: 54900, step: 1, format: 24}
      ];
 
-4) Then use the below format in your template / html file
+5) Then use the below format in your template / html file
 
     <ionic-time-picker etime="slots[0].epochTime" format="12" step="15">    
         {{slots[0].epochTime}}
