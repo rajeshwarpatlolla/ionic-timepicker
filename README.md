@@ -17,7 +17,7 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
     
 2) Then you can see the following directory structure see in your project folder
    
-![12-Hour](https://lh3.googleusercontent.com/_s2lFLFfgYSUfhdmZO0r4w6td80dEErTN4pLc7Louo8=w163-h207-p-no "Directory Structure")
+![Directory Structure](https://lh3.googleusercontent.com/_s2lFLFfgYSUfhdmZO0r4w6td80dEErTN4pLc7Louo8=w200-h300-p-no "Directory Structure")
 
 Give the path of  `style.css, templates.js and ionic-timepicker.js` in your `index.html` file.
 
