@@ -19,7 +19,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
 
                 scope.time = { hours: 0, minutes: 0, meridian: "" };
 
-                var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
+                var objDate = new Date(obj.epochTime);       // Epoch time in milliseconds.
 
                 scope.increaseHours = function () {
                     if (obj.format == 12) {
@@ -73,9 +73,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
 
                 if (obj.format == 12) {
 
-                    scope.time.meridian = (objDate.getUTCHours() >= 12) ? "PM" : "AM";
-                    scope.time.hours = (objDate.getUTCHours() > 12) ? ((objDate.getUTCHours() - 12)) : (objDate.getUTCHours());
-                    scope.time.minutes = (objDate.getUTCMinutes());
+                    scope.time.meridian = (objDate.getHours() >= 12) ? "PM" : "AM";
+                    scope.time.hours = (objDate.getHours() > 12) ? ((objDate.getHours() - 12)) : (objDate.getHours());
+                    scope.time.minutes = (objDate.getMinutes());
 
                     if (scope.time.hours == 0 && scope.time.meridian == "AM") {
                         scope.time.hours = 12;
@@ -112,7 +112,12 @@ angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
                                     } else if (scope.time.meridian === "PM") {
                                         totalSec += 43200;
                                     }
-                                    scope.etime = totalSec;
+
+                                    // handle timezone offset
+                                    var offset = (new Date()).getTimezoneOffset() * 60;
+                                    totalSec += offset;
+
+                                    scope.etime = totalSec * 1000;
                                 }
                             }
                         ]
@@ -122,8 +127,8 @@ angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
 
                 if (obj.format == 24) {
 
-                    scope.time.hours = (objDate.getUTCHours());
-                    scope.time.minutes = (objDate.getUTCMinutes());
+                    scope.time.hours = (objDate.getHours());
+                    scope.time.minutes = (objDate.getMinutes());
 
                     $ionicPopup.show({
                         templateUrl: 'time-picker-24-hour.html',
@@ -146,7 +151,12 @@ angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
                                     } else {
                                         totalSec = scope.time.minutes * 60;
                                     }
-                                    scope.etime = totalSec;
+
+                                    // handle timezone offset
+                                    var offset = (new Date()).getTimezoneOffset() * 60;
+                                    totalSec += offset;
+
+                                    scope.etime = totalSec * 1000;
                                 }
                             }
                         ]
