@@ -33,7 +33,7 @@ Give the path of  `style.css, templates.js and ionic-timepicker.js` in your `ind
     
 ````javascript
 angular.module('modulename', ['ionic', 'ionic-timepicker']){
-    //1
+
 }
 ````
 
