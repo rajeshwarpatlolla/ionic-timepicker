@@ -30,9 +30,18 @@ Give the path of  `style.css, templates.js and ionic-timepicker.js` in your `ind
     
 3) In your application module inject the dependency `ionic-timepicker`, in order to work with the ionic time picker
     
+````javascript
+angular.module('modulename', ['ionic', 'ionic-timepicker']){
+    //1
+}
+````
+
+    ````javascript
     angular.module('modulename', ['ionic', 'ionic-timepicker']){
-    
+        //2
     }
+    ````
+
 
 4) Use the below format in your template's corresponding controller
 
