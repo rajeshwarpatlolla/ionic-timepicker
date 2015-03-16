@@ -40,24 +40,21 @@ angular.module('modulename', ['ionic', 'ionic-timepicker']){
 4) Use the below format in your template's corresponding controller
 
 ````javascript
-$scope.slots = [
-      {epochTime: 12600, step: 15, format: 12},
-      {epochTime: 54900, step: 1, format: 24}
- ];
+$scope.slots = {epochTime: 12600, step: 15, format: 12};
 ````
 
 5) Then use the below format in your template / html file
 
 ````html
-<ionic-time-picker etime="slots[0].epochTime" format="12" step="15">    
-    {{slots[0].epochTime}}
+<ionic-time-picker etime="slots.epochTime" format="12" step="15">    
+    {{slots.epochTime}}
 </ionic-time-picker>
 ````
 
 
 a) `ionic-time-picker` is the directive, to which we can pass required vales.
 
-b) `etime` takes epoch time.
+b) `etime` takes epoch time, which will be converted to UTC.
 	
 c) `format` indicates 12 hour or 24 hour format. It can take two values, 12 or 24.
 
