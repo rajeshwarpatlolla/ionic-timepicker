@@ -60,7 +60,7 @@ c) `format` indicates 12 hour or 24 hour format. It can take two values, 12 or 2
 
 d) `step` indicates minute increment. It can take two values, 1 or 15.
 
-You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convet the epoch time to string format.
+You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convert the epoch time to string format.
 
 Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`. 
 
