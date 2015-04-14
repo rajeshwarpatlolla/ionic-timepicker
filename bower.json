@@ -14,7 +14,8 @@
     "ionic",
     "timepicker",
     "ionic",
-    "timepicker"
+    "timepicker",
+    "ionic-timepicker"
   ],
   "license": "MIT",
   "homepage": "https://github.com/rajeshwarpatlolla",
