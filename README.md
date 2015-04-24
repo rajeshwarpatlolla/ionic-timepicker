@@ -65,6 +65,11 @@ You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-
 Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`. 
 
  
+##Screen Shots:
+ 
+![12-Hour](https://lh6.googleusercontent.com/-UL18wuskI_A/VNHkGj8tdwI/AAAAAAAADdU/5tBbZcF6_es/w328-h494-no/TimePicker-1.jpg "12-Hour")
+![24-Hour](https://lh5.googleusercontent.com/-xgqgH2zRSuA/VNHkGQ6R8cI/AAAAAAAADdQ/5gGJ1nUqmA0/w328-h494-no/TimePicker-2.jpg "24-Hour.")
+
 ##Versions:
 
 ### 1) v0.1.0
