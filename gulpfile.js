@@ -7,6 +7,7 @@ var ngHtml2Js = require("gulp-ng-html2js");
 var minifyHtml = require("gulp-minify-html");
 var minifycss = require("gulp-minify-css");
 
+
 gulp.task('html2js', function () {
   gulp.src(['./src/*.html'])
     .pipe(minifyHtml())

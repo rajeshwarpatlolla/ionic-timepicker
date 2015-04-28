@@ -6,7 +6,9 @@
   "scripts": {},
   "author": "https://github.com/rajeshwarpatlolla, rajeshwar.patlolla@gmail.com",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    
+  },
   "devDependencies": {
     "gulp": "~3.8.11",
     "gulp-clean": "^0.3.1",
