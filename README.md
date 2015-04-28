@@ -76,6 +76,7 @@ Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`.
 The whole time picker functionality has been implemented, and can be installed with 
     
     bower install ionic-timepicker --save
+    
 ### 1) v0.1.1
 Directive name has been modified.
 
