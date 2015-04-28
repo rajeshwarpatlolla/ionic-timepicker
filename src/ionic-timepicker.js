@@ -2,6 +2,8 @@
 //https://github.com/rajeshwarpatlolla
 
 angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
+
+// Defining `ionicTimepicker` directive
     .directive('ionicTimepicker', ['$ionicPopup', function ($ionicPopup) {
     return {
         restrict: 'AE',
@@ -91,7 +93,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                         subTitle: '',
                         scope: scope,
                         buttons: [
-                            { text: 'Cancel' },
+                            { text: 'Close' },
                             {
                                 text: 'Set',
                                 type: 'button-positive',
@@ -131,7 +133,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                         subTitle: '',
                         scope: scope,
                         buttons: [
-                            { text: 'Cancel' },
+                            { text: 'Close' },
                             {
                                 text: 'Set',
                                 type: 'button-positive',
