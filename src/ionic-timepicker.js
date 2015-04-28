@@ -1,8 +1,8 @@
 //By Rajeshwar Patlolla
 //https://github.com/rajeshwarpatlolla
 
-angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
-    .directive('ionicTimePicker', ['$ionicPopup', function ($ionicPopup) {
+angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
+    .directive('ionicTimepicker', ['$ionicPopup', function ($ionicPopup) {
     return {
         restrict: 'AE',
         replace: true,

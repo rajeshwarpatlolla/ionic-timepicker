@@ -46,13 +46,13 @@ $scope.slots = {epochTime: 12600, format: 12, step: 15};
 5) Then use the below format in your template / html file
 
 ````html
-<ionic-time-picker etime="slots.epochTime" format="slots.format" step="slots.step">    
+<ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step">    
     {{slots.epochTime}}
-</ionic-time-picker>
+</ionic-timepicker>
 ````
 
 
-a) `ionic-time-picker` is the directive, to which we can pass required vales.
+a) `ionic-timepicker` is the directive, to which we can pass required vales.
 
 b) `etime` takes epoch time, which will be converted to UTC.
 	
