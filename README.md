@@ -77,7 +77,7 @@ The whole time picker functionality has been implemented, and can be installed w
     
     bower install ionic-timepicker --save
     
-### 1) v0.1.1
+### 2) v0.1.1
 Directive name has been modified.
 
 
