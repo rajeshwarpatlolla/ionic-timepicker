@@ -47,7 +47,7 @@ $scope.slots = {epochTime: 12600, format: 12, step: 15};
 
 ````html
 <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step">    
-    {{slots.epochTime}}
+	<button class="button button-block button-positive"> {{slots.epochTime}} </button>
 </ionic-timepicker>
 ````
 
