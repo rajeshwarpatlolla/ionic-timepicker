@@ -80,6 +80,9 @@ The whole time picker functionality has been implemented, and can be installed w
 ### 2) v0.1.1
 Directive name has been modified.
 
+### 2) v0.1.2
+If the minutes and hours are less than 10, then 0 will be prepended to the value of minutes/hours.
+
 
 ##License:
 MIT
