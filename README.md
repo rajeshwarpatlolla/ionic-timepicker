@@ -40,13 +40,13 @@ angular.module('modulename', ['ionic', 'ionic-timepicker']){
 4) Use the below format in your template's corresponding controller
 
 ````javascript
-$scope.slots = {epochTime: 12600, format: 12, step: 15};
+$scope.slots = {epochTime: 12600, format: 12, step: 15, changeFunction: function (newTime) { alert("Time changed!"); }};
 ````
 
 5) Then use the below format in your template / html file
 
 ````html
-<ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step">    
+<ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" change="slots.changeFunction" >    
 	<button class="button button-block button-positive"> {{slots.epochTime}} </button>
 </ionic-timepicker>
 ````
@@ -59,6 +59,8 @@ b) `etime` takes epoch time, which will be converted to UTC.
 c) `format` indicates 12 hour or 24 hour format. It can take two values, 12 or 24.
 
 d) `step` indicates minute increment. It can take two values, 1 or 15.
+
+e) `change` reference to a function to be called after a new time is set.
 
 You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convert the epoch time to string format.
 
