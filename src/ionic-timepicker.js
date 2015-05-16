@@ -11,7 +11,8 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
       scope: {
         etime: '=etime',        //epoch time getting from a template
         format: '=format',      //format getting from a template
-        step: '=step'           //step getting from a template
+        step: '=step',           //step getting from a template
+        change: '=change'
       },
       link: function (scope, element, attrs) {
 
@@ -124,6 +125,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                       totalSec += 43200;
                     }
                     scope.etime = totalSec;
+                    if (!!scope.change && typeof(scope.change) === 'function') {
+                      scope.change(totalSec);
+                    }
                   }
                 }
               ]
@@ -158,6 +162,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                       totalSec = scope.time.minutes * 60;
                     }
                     scope.etime = totalSec;
+                    if (!!scope.change && typeof(scope.change) === 'function') {
+                      scope.change(totalSec);
+                    }
                   }
                 }
               ]
