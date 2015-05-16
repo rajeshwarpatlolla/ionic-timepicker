@@ -84,7 +84,7 @@ Directive name has been modified.
 If the minutes and hours are less than 10, then 0 will be prepended to the value of minutes/hours.
 
 ##License:
-[MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/README.md "MIT")
+[MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD "MIT")
 
 ##Contact:
 gmail : rajeshwar.patlolla@gmail.com
