@@ -88,6 +88,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
             scope.time.hours = (objDate.getUTCHours() > 12) ? ((objDate.getUTCHours() - 12)) : (objDate.getUTCHours());
             scope.time.minutes = (objDate.getUTCMinutes());
 
+            scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
+            scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
+
             if (scope.time.hours == 0 && scope.time.meridian == "AM") {
               scope.time.hours = 12;
             }
@@ -135,6 +138,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
 
             scope.time.hours = (objDate.getUTCHours());
             scope.time.minutes = (objDate.getUTCMinutes());
+
+            scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
+            scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
 
             $ionicPopup.show({
               templateUrl: 'time-picker-24-hour.html',
