@@ -15,7 +15,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionictimepicker.templates'])
 
             element.on("click", function () {
 
-                var obj = {epochTime: scope.etime, step: scope.step, format: scope.format};
+                var obj = { epochTime: scope.etime || (new Date()).getTime(), step: scope.step, format: scope.format };
 
                 scope.time = { hours: 0, minutes: 0, meridian: "" };
 
