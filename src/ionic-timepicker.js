@@ -11,7 +11,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
       scope: {
         etime: '=etime',        //epoch time getting from a template
         format: '=format',      //format getting from a template
-        step: '=step'           //step getting from a template
+        step: '=step',           //step getting from a template
+        setCallback: '&', //Callback for set button
+        closeCallback: '&' //Callback for close button
       },
       link: function (scope, element, attrs) {
 
@@ -102,7 +104,14 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
               subTitle: '',
               scope: scope,
               buttons: [
-                {text: 'Close'},
+                {
+                  text: 'Close',
+                  onTap: function () {
+                    if (angular.isFunction(scope.closeCallback)) {
+                        scope.closeCallback();
+                    }
+                  }
+                },
                 {
                   text: 'Set',
                   type: 'button-positive',
@@ -124,6 +133,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                       totalSec += 43200;
                     }
                     scope.etime = totalSec;
+                    if (angular.isFunction(scope.setCallback)) {
+                        scope.setCallback();
+                    }
                   }
                 }
               ]
@@ -142,7 +154,14 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
               subTitle: '',
               scope: scope,
               buttons: [
-                {text: 'Close'},
+                {
+                  text: 'Close',
+                  onTap: function () {
+                    if (angular.isFunction(scope.closeCallback)) {
+                        scope.closeCallback();
+                    }
+                  }
+                },
                 {
                   text: 'Set',
                   type: 'button-positive',
@@ -158,6 +177,9 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                       totalSec = scope.time.minutes * 60;
                     }
                     scope.etime = totalSec;
+                    if (angular.isFunction(scope.setCallback)) {
+                        scope.setCallback();
+                    }
                   }
                 }
               ]
