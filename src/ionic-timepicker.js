@@ -11,7 +11,8 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
       scope: {
         etime: '=etime',        //epoch time getting from a template
         format: '=format',      //format getting from a template
-        step: '=step'           //step getting from a template
+        step: '=step',          //step getting from a template
+        callback: '=callback'   //callback function
       },
       link: function (scope, element, attrs) {
 
@@ -102,12 +103,16 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
               subTitle: '',
               scope: scope,
               buttons: [
-                {text: 'Close'},
+                {
+                  text: 'Close',
+                  onTap: function (e) {
+                    scope.callback(undefined);
+                  }
+                },
                 {
                   text: 'Set',
                   type: 'button-positive',
                   onTap: function (e) {
-
                     scope.loadingContent = true;
 
                     var totalSec = 0;
@@ -124,14 +129,13 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                       totalSec += 43200;
                     }
                     scope.etime = totalSec;
+                    scope.callback(scope.etime);
                   }
                 }
               ]
             })
 
-          }
-
-          if (obj.format == 24) {
+          }else if (obj.format == 24) {
 
             scope.time.hours = (objDate.getUTCHours());
             scope.time.minutes = (objDate.getUTCMinutes());
@@ -142,7 +146,12 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
               subTitle: '',
               scope: scope,
               buttons: [
-                {text: 'Close'},
+                {
+                  text: 'Close',
+                  onTap: function (e) {
+                    scope.callback(undefined);
+                  }
+                },
                 {
                   text: 'Set',
                   type: 'button-positive',
@@ -158,6 +167,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
                       totalSec = scope.time.minutes * 60;
                     }
                     scope.etime = totalSec;
+                    scope.callback(scope.etime);
                   }
                 }
               ]
