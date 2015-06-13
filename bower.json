@@ -1,21 +1,21 @@
 {
   "name": "ionic-timepicker",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "authors": [
     "rajeshwarpatlolla <rajeshwar.patlolla@gmail.com>"
   ],
-  "description": "A timepicker for Ionic framework",
+  "description": "A timepicker component for Ionic framework",
   "main": [
     "./dist/templates.js",
     "./dist/ionic-timepicker.js",
     "./dist/style.css"
   ],
   "keywords": [
+    "ionic-timepicker",
     "ionic",
     "timepicker",
-    "ionic",
-    "timepicker",
-    "ionic-timepicker"
+    "timepicker for ionic",
+    "timepicker for ionic framework"
   ],
   "license": "MIT",
   "homepage": "https://github.com/rajeshwarpatlolla",
@@ -27,6 +27,6 @@
     "tests"
   ],
   "dependencies": {
-    "ionic": "~0.9.27"
+    "ionic": ">=0.9.27"
   }
 }
