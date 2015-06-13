@@ -92,10 +92,10 @@ bower install ionic-timepicker --save
 ### 2) v0.1.1
 Directive name has been modified.
 
-### 2) v0.1.2
+### 3) v0.1.2
 If the minutes and hours are less than 10, then 0 will be prepended to the value of minutes/hours.
 
-### 2) v0.2.0
+### 4) v0.2.0
 Callback function added to get the selected time in to the controller.
 
 ##License:
