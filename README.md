@@ -4,7 +4,6 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 
 [View Demo](http://rajeshwarpatlolla.github.io/TimePickerForIonicFramework/demo/ "Demo") 
 
-
 ##Prerequisites.
 
 1) node.js, bower and gulp.
@@ -76,6 +75,7 @@ You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-
 
 Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`. 
 
+6) To integrate with [ionic-datepicker](https://github.com/rajeshwarpatlolla/ionic-datepicker "ionic-datepicker") and call timePicker programmatically, see below
 
 ````javascript
 $scope.slots = $rootScope.$new(true);
