@@ -77,6 +77,25 @@ You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-
 Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`. 
 
 
+````javascript
+$scope.slots = $rootScope.$new(true);
+//If you're using underscorejs
+_.extend($scope.slots, {epochTime: 12600, format: 24, step: 15});
+//Without underscorejs
+$scope.slots.epochTime = 12600;
+$scope.slots.format = 24;
+$scope.slots.step = 15;
+
+$scope.datePickerCallback = function (val) {
+    if(typeof(val)==='undefined'){      
+        console.log('Date not selected');
+    }else{
+        showTimePicker($scope.slots, $ionicPopup);
+        console.log('Selected date is : ', val);
+    }
+};
+````
+
 ##Screen Shots:
 
 ![12-Hour](https://lh6.googleusercontent.com/-UL18wuskI_A/VNHkGj8tdwI/AAAAAAAADdU/5tBbZcF6_es/w328-h494-no/TimePicker-1.jpg "12-Hour")
