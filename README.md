@@ -61,7 +61,6 @@ a) `timePickerCallback` is the callback function which we have to pass to the `i
 </ionic-timepicker>
 ````
 
-
 a) `ionic-timepicker` is the directive, to which we can pass required vales.
 
 b) `etime` takes epoch time, which will be converted to UTC.
@@ -73,8 +72,6 @@ d) `step` indicates minute increment. It can take two values, 1 or 15.
 e) `callback` is the callback function, which will be called once the timepicker popup has bees closed. It will return `undefined` if no time has been selected. It will return the `time in epoch` if the user selects some time.
 
 You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convert the epoch time to string format.
-
-Tested with `angular#1.3.6` and `ionic#1.0.0-beta.14`. 
 
 
 ##Screen Shots:
@@ -97,6 +94,9 @@ If the minutes and hours are less than 10, then 0 will be prepended to the value
 
 ### 4) v0.2.0
 Callback function added to get the selected time in to the controller.
+
+### 5) v0.2.1
+Class names modified as per [this bug](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/41).
 
 ##License:
 [MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD "MIT")
