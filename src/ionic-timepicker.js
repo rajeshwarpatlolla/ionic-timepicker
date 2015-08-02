@@ -25,6 +25,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
 
           var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
 
+          //Increasing the hours
           scope.increaseHours = function () {
             scope.time.hours = Number(scope.time.hours);
             if (obj.format == 12) {
@@ -44,6 +45,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
             scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
           };
 
+          //Decreasing the hours
           scope.decreaseHours = function () {
             scope.time.hours = Number(scope.time.hours);
             if (obj.format == 12) {
@@ -63,6 +65,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
             scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
           };
 
+          //Increasing the minutes
           scope.increaseMinutes = function () {
             scope.time.minutes = Number(scope.time.minutes);
 
@@ -74,6 +77,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
             scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
           };
 
+          //Decreasing the hours
           scope.decreaseMinutes = function () {
             scope.time.minutes = Number(scope.time.minutes);
             if (scope.time.minutes != 0) {
