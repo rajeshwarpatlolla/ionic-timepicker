@@ -105,6 +105,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
               scope.time.meridian = (scope.time.meridian === "AM") ? "PM" : "AM";
             };
 
+            //Showing time picker modal for 12 hour format
             $ionicPopup.show({
               templateUrl: 'time-picker-12-hour.html',
               title: obj.title || '<strong>12-Hour Format</strong>',
@@ -143,7 +144,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
               ]
             })
 
-          }else if (obj.format == 24) {
+          } else if (obj.format == 24) {
 
             scope.time.hours = (objDate.getUTCHours());
             scope.time.minutes = (objDate.getUTCMinutes());
@@ -151,6 +152,7 @@ angular.module('ionic-timepicker', ['ionic', 'ionic-timepicker.templates'])
             scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
             scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
 
+            //Showing time picker modal for 24 hour format
             $ionicPopup.show({
               templateUrl: 'time-picker-24-hour.html',
               title: obj.title || '<strong>24-Hour Format</strong>',
