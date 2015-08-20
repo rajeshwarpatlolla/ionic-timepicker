@@ -13,20 +13,15 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 
 1) In your project repository install the ionic time picker using bower
 
-bower install ionic-timepicker --save-dev
+`bower install ionic-timepicker --save-dev`
 
-2) Then you can see the following directory structure see in your project folder
-
-![Directory Structure](https://lh3.googleusercontent.com/_s2lFLFfgYSUfhdmZO0r4w6td80dEErTN4pLc7Louo8=w200-h300-p-no "Directory Structure")
-
-Give the path of  `style.css, templates.js and ionic-timepicker.js` in your `index.html` file.
+2) Give the path of  `ionic-timepicker.bundle.min.js` in your `index.html` file.
 
 ````html
 <link href="lib/ionic-timepicker/dist/style.css" rel="stylesheet">
 
 <!-- path to ionic/angularjs js -->
-<script src="lib/ionic-timepicker/dist/templates.js"></script>
-<script src="lib/ionic-timepicker/dist/ionic-timepicker.js"></script>
+<script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 ````    
 
 3) In your application module inject the dependency `ionic-timepicker`, in order to work with the ionic time picker
@@ -40,7 +35,19 @@ angular.module('modulename', ['ionic', 'ionic-timepicker']){
 4) Use the below format in your template's corresponding controller
 
 ````javascript
-$scope.slots = {epochTime: 12600, format: 12, step: 15};
+$scope.timePickerObject = {
+  inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+  step: 15,  //Optional
+  format: 12,  //Optional
+  titleLabel: '12-hour Format',  //Optional
+  setLabel: 'Set',  //Optional
+  closeLabel: 'Close',  //Optional
+  setButtonType: 'button-positive',  //Optional
+  closeButtonType: 'button-stable',  //Optional
+  callback: function (val) {    //Mandatory
+    timePickerCallback(val);
+  }
+};
 
 $scope.timePickerCallback = function (val) {
   if (typeof (val) === 'undefined') {
@@ -51,13 +58,43 @@ $scope.timePickerCallback = function (val) {
 };
 ````
 
-a) `timePickerCallback` is the callback function which we have to pass to the `ionic-timepicker` directive.
+**$scope.timePickerObject** is the main object, that we need to pass to the directive. The properties of this object are as follows.
+
+**a) inputEpochTime**(Optional) : This the input epoch time to which the time will set initially. Default value is current hour. This is mandatory if you wish to show this on the button before opening the popup.
+
+**b) step**(Optional) : This the minute increment / decrement step. Default value is `15`
+
+**c) format**(Optional) : This the format of the time. It can can two values i.e.`12` or `24`. Default value is `24`
+
+**d) titleLabel**(Optional) : The label for `Title` of the popup. Default value is `Time Picker`
+
+**e) setLabel**(Optional) : The label for the `Set` button. Default value is `Set`
+
+**f) closeLabel**(Optional) : The label for the `Close` button. Default value is `Close`
+
+**g) setButtonType**(Optional) : This the type of the `Set` button. Default value is `button-positive`. You can give any valid ionic framework's button classes. 
+
+**h) closeButtonType**(Optional) : This the type of the `Close` button. Default value is `button-stable`. You can give any valid ionic framework's button classes.
+
+**i) callback**(Mandatory) : This the callback function, which will get the selected time in to the controller. You can define this function as follows.
+````javascript
+function timePickerCallback(val) {
+  if (typeof (val) === 'undefined') {
+    console.log('Time not selected');
+  } else {
+    var selectedTime = new Date(val * 1000);
+    console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
+  }
+}
+````
 
 5) Then use the below format in your template / html file
 
 ````html
-<ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="timePickerCallback">    
-<button class="button button-block button-positive"> {{slots.epochTime}} </button>
+<ionic-timepicker input-obj="timePickerObject">
+  <button class="button button-block button-positive overflowShow">
+    <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+  </button>
 </ionic-timepicker>
 ````
 
@@ -97,6 +134,9 @@ Callback function added to get the selected time in to the controller.
 
 ### 5) v0.2.1
 Class names modified as per [this bug](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/41).
+
+### 6) v0.3.0
+Features added to customize this component. 
 
 ##License:
 [MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD "MIT")

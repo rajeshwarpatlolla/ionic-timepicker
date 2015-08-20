@@ -1,14 +1,12 @@
 {
   "name": "ionic-timepicker",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "authors": [
     "rajeshwarpatlolla <rajeshwar.patlolla@gmail.com>"
   ],
   "description": "A timepicker component for Ionic framework",
   "main": [
-    "./dist/templates.js",
-    "./dist/ionic-timepicker.js",
-    "./dist/style.css"
+    "./dist/ionic-timepicker.bundle.min.js"
   ],
   "keywords": [
     "ionic-timepicker",
