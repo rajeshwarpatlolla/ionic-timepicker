@@ -18,8 +18,6 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 2) Give the path of  `ionic-timepicker.bundle.min.js` in your `index.html` file.
 
 ````html
-<link href="lib/ionic-timepicker/dist/style.css" rel="stylesheet">
-
 <!-- path to ionic/angularjs js -->
 <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 ````    
@@ -48,35 +46,27 @@ $scope.timePickerObject = {
     timePickerCallback(val);
   }
 };
-
-$scope.timePickerCallback = function (val) {
-  if (typeof (val) === 'undefined') {
-    console.log('Time not selected');
-  } else {
-    console.log('Selected time is : ', val);	// `val` will contain the selected time in epoch
-  }
-};
 ````
 
 **$scope.timePickerObject** is the main object, that we need to pass to the directive. The properties of this object are as follows.
 
-**a) inputEpochTime**(Optional) : This the input epoch time to which the time will set initially. Default value is current hour. This is mandatory if you wish to show this on the button before opening the popup.
+**a) inputEpochTime** (Optional) : This the input epoch time to which the time will set initially. Default value is current hour. This is mandatory if you wish to show this on the button before opening the popup.
 
-**b) step**(Optional) : This the minute increment / decrement step. Default value is `15`
+**b) step** (Optional) : This the minute increment / decrement step. Default value is `15`
 
-**c) format**(Optional) : This the format of the time. It can can two values i.e.`12` or `24`. Default value is `24`
+**c) format** (Optional) : This the format of the time. It can can two values i.e.`12` or `24`. Default value is `24`
 
-**d) titleLabel**(Optional) : The label for `Title` of the popup. Default value is `Time Picker`
+**d) titleLabel** (Optional) : The label for `Title` of the popup. Default value is `Time Picker`
 
-**e) setLabel**(Optional) : The label for the `Set` button. Default value is `Set`
+**e) setLabel** (Optional) : The label for the `Set` button. Default value is `Set`
 
-**f) closeLabel**(Optional) : The label for the `Close` button. Default value is `Close`
+**f) closeLabel** (Optional) : The label for the `Close` button. Default value is `Close`
 
-**g) setButtonType**(Optional) : This the type of the `Set` button. Default value is `button-positive`. You can give any valid ionic framework's button classes. 
+**g) setButtonType** (Optional) : This the type of the `Set` button. Default value is `button-positive`. You can give any valid ionic framework's button classes. 
 
-**h) closeButtonType**(Optional) : This the type of the `Close` button. Default value is `button-stable`. You can give any valid ionic framework's button classes.
+**h) closeButtonType** (Optional) : This the type of the `Close` button. Default value is `button-stable`. You can give any valid ionic framework's button classes.
 
-**i) callback**(Mandatory) : This the callback function, which will get the selected time in to the controller. You can define this function as follows.
+**i) callback** (Mandatory) : This the callback function, which will get the selected time in to the controller. You can define this function as follows.
 ````javascript
 function timePickerCallback(val) {
   if (typeof (val) === 'undefined') {
@@ -98,15 +88,9 @@ function timePickerCallback(val) {
 </ionic-timepicker>
 ````
 
-a) `ionic-timepicker` is the directive, to which we can pass required vales.
+**a) ionic-timepicker**  is the directive, to which we can pass required vales.
 
-b) `etime` takes epoch time, which will be converted to UTC.
-
-c) `format` indicates 12 hour or 24 hour format. It can take two values, 12 or 24.
-
-d) `step` indicates minute increment. It can take two values, 1 or 15.
-
-e) `callback` is the callback function, which will be called once the timepicker popup has bees closed. It will return `undefined` if no time has been selected. It will return the `time in epoch` if the user selects some time.
+**b) input-obj** (Mandatory) : This is an object. We have to pass an object as shown above.
 
 You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convert the epoch time to string format.
 
