@@ -22,7 +22,7 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 ````    
 
-3) In your application module inject the dependency `ionic-timepicker`, in order to work with the ionic time picker
+3) In your application module inject the dependency `ionic-timepicker`, in order to work with the `ionic-timepicker` component
 
 ````javascript
 angular.module('modulename', ['ionic', 'ionic-timepicker']){
