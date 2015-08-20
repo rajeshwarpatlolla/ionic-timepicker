@@ -50,7 +50,7 @@ $scope.timePickerObject = {
 
 **$scope.timePickerObject** is the main object, that we need to pass to the directive. The properties of this object are as follows.
 
-**a) inputEpochTime** (Optional) : This the input epoch time to which the time will set initially. Default value is current hour. This is mandatory if you wish to show this on the button before opening the popup.
+**a) inputEpochTime** (Optional) : This the input epoch time to which the time will set initially. Default value is current hour. This is mandatory if you wish to show the time on the button, even before opening the popup.
 
 **b) step** (Optional) : This the minute increment / decrement step. Default value is `15`
 
@@ -92,6 +92,7 @@ function timePickerCallback(val) {
 
 **b) input-obj** (Mandatory) : This is an object. We have to pass an object as shown above.
 
+`standard-time-meridian` is the directive i am using here to show the time in string format instead of the epoch value.
 You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convert the epoch time to string format.
 
 
