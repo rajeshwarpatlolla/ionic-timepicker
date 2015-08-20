@@ -48,7 +48,7 @@ $scope.timePickerObject = {
 };
 ````
 
-**$scope.timePickerObject** is the main object, that we need to pass to the directive. The properties of this object are as follows.
+**$scope.timePickerObject** is the object, that we need to pass to the directive. The properties of this object are as follows.
 
 **a) inputEpochTime** (Optional) : This the input epoch time to which the time will set initially. Default value is current hour. This is mandatory if you wish to show the time on the button, even before opening the popup.
 
