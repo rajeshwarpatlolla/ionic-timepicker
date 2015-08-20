@@ -92,7 +92,7 @@ function timePickerCallback(val) {
 
 **b) input-obj** (Mandatory) : This is an object. We have to pass an object as shown above.
 
-`standard-time-meridian` is the directive i am using here to show the time in string format instead of the epoch value.
+[standard-time-meridian](https://github.com/rajeshwarpatlolla/my-angularjs-directives#standard-time-meridian 'standard-time-meridian') is the directive i am using here to show the time in string format instead of the epoch value.
 You can also use any of my [directives](https://github.com/rajeshwarpatlolla/my-angularjs-directives) to convert the epoch time to string format.
 
 
