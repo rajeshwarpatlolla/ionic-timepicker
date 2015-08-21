@@ -101,6 +101,9 @@
         };
 
         element.on("click", function () {
+          if (scope.inputObj.inputEpochTime) {
+            objDate = new Date(scope.inputObj.inputEpochTime * 1000);
+          }
 
           if (obj.format == 12) {
 
