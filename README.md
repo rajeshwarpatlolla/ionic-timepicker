@@ -56,7 +56,7 @@ $scope.timePickerObject = {
 
 **c) format** (Optional) : This the format of the time. It can can two values i.e.`12` or `24`. Default value is `24`
 
-**d) titleLabel** (Optional) : The label for `Title` of the popup. Default value is `Time Picker`
+**d) titleLabel** (Optional) : The `Title` for the popup. Default value is `Time Picker`
 
 **e) setLabel** (Optional) : The label for the `Set` button. Default value is `Set`
 
