@@ -13,7 +13,7 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 
 1) In your project repository install the ionic time picker using bower
 
-`bower install ionic-timepicker --save-dev`
+`bower install ionic-timepicker --save`
 
 2) Give the path of  `ionic-timepicker.bundle.min.js` in your `index.html` file.
 
