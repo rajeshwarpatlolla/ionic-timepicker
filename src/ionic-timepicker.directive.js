@@ -88,7 +88,7 @@
 
         scope.decreaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
-          if (scope.time.minutes != 0 && (scope.time.minutes - obj.step > 0)) {
+          if (scope.time.minutes != 0 && (scope.time.minutes - obj.step >= 0)) {
             scope.time.minutes -= obj.step;
           } else {
             scope.time.minutes = 60 - obj.step;
