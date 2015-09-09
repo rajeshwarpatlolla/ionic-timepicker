@@ -88,7 +88,7 @@
 
         scope.decreaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
-          if (scope.time.minutes != 0 && (scope.time.minutes - obj.step >= 0)) {
+          if (scope.time.minutes !== 0 && (scope.time.minutes - obj.step >= 0)) {
             scope.time.minutes -= obj.step;
           } else {
             scope.time.minutes = 60 - obj.step;
@@ -114,7 +114,7 @@
             scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
             scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
 
-            if (scope.time.hours == 0 && scope.time.meridian == "AM") {
+            if (scope.time.hours === 0 && scope.time.meridian === "AM") {
               scope.time.hours = 12;
             }
 
@@ -155,7 +155,7 @@
                   }
                 }
               ]
-            })
+            });
 
           } else if (obj.format == 24) {
 
@@ -197,7 +197,7 @@
                   }
                 }
               ]
-            })
+            });
           }
         });
       }
