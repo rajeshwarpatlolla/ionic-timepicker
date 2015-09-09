@@ -1,3 +1,5 @@
+[![bitHound Score](https://www.bithound.io/github/rajeshwarpatlolla/ionic-timepicker/badges/score.svg)](https://www.bithound.io/github/rajeshwarpatlolla/ionic-timepicker)
+
 ##Introduction:
 
 This is a `ionic-timepicker` bower component which can be used with any Ionic framework's application.
