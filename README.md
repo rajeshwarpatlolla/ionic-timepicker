@@ -139,3 +139,5 @@ facebook : https://www.facebook.com/rajeshwarpatlolla
 
 paypal : rajeshwar.patlolla@gmail.com
 
+Rate it or Comment : http://market.ionic.io/plugins/ionictimepicker
+
