@@ -86,7 +86,11 @@
         };
 
         element.on("click", function () {
-          objDate = new Date(scope.inputObj.inputEpochTime * 1000);
+          if (typeof scope.inputObj.inputEpochTime === 'undefined' || scope.inputObj.inputEpochTime === null) {
+            objDate = new Date();
+          } else {
+            objDate = new Date(scope.inputObj.inputEpochTime * 1000);
+          }
 
           if (obj.format == 12) {
 
