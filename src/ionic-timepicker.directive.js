@@ -17,8 +17,6 @@
       },
       link: function (scope, element, attrs) {
 
-        console.log(scope.inputObj);
-
         var today = new Date();
         var currentEpoch = today.getHours();
 
@@ -47,11 +45,7 @@
             }
           }
           if (obj.format == 24) {
-            if (scope.time.hours != 23) {
-              scope.time.hours += 1;
-            } else {
-              scope.time.hours = 0;
-            }
+            scope.time.hours = (scope.time.hours + 1) % 24;
           }
           scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
         };
@@ -66,11 +60,7 @@
             }
           }
           if (obj.format == 24) {
-            if (scope.time.hours > 0) {
-              scope.time.hours -= 1;
-            } else {
-              scope.time.hours = 23;
-            }
+            scope.time.hours = (scope.time.hours + 23) % 24;
           }
           scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
         };
@@ -78,21 +68,16 @@
         scope.increaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
 
-          if (scope.time.minutes != (60 - obj.step) && (scope.time.minutes + obj.step <= 60)) {
-            scope.time.minutes += obj.step;
-          } else {
-            scope.time.minutes = 0;
-          }
+          scope.time.minutes = (scope.time.minutes + obj.step) % 60;
+
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
         scope.decreaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
-          if (scope.time.minutes !== 0 && (scope.time.minutes - obj.step >= 0)) {
-            scope.time.minutes -= obj.step;
-          } else {
-            scope.time.minutes = 60 - obj.step;
-          }
+
+          scope.time.minutes = (scope.time.minutes + (60 - obj.step)) % 60;
+
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
@@ -101,9 +86,7 @@
         };
 
         element.on("click", function () {
-          if (scope.inputObj.inputEpochTime) {
-            objDate = new Date(scope.inputObj.inputEpochTime * 1000);
-          }
+          objDate = new Date(scope.inputObj.inputEpochTime * 1000);
 
           if (obj.format == 12) {
 
