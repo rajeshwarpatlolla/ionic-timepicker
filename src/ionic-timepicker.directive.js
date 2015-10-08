@@ -30,9 +30,7 @@
         scope.closeButtonType = scope.inputObj.closeButtonType ? scope.inputObj.closeButtonType : 'button-stable';
 
         var obj = {epochTime: scope.inputEpochTime, step: scope.step, format: scope.format};
-
         scope.time = {hours: 0, minutes: 0, meridian: ""};
-
         var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
 
         scope.increaseHours = function () {
@@ -67,17 +65,13 @@
 
         scope.increaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
-
           scope.time.minutes = (scope.time.minutes + obj.step) % 60;
-
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
         scope.decreaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
-
           scope.time.minutes = (scope.time.minutes + (60 - obj.step)) % 60;
-
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
@@ -93,7 +87,6 @@
           }
 
           if (obj.format == 12) {
-
             scope.time.meridian = (objDate.getUTCHours() >= 12) ? "PM" : "AM";
             scope.time.hours = (objDate.getUTCHours() > 12) ? ((objDate.getUTCHours() - 12)) : (objDate.getUTCHours());
             scope.time.minutes = (objDate.getUTCMinutes());
