@@ -4,7 +4,7 @@
       <button type="button" class="button button-clear button-small button-dark timePickerArrows marginBottom10"
               ng-click="increaseHours()">
         <i class="icon ion-chevron-up"></i></button>
-      <input type="text" placeholder="" ng-model="time.hours" class="ipBoxes timePickerBoxText" disabled>
+      <div ng-bind="time.hours" class="ipBoxes timePickerBoxText"></div>
       <button type="button" class="button button-clear button-small button-dark timePickerArrows marginTop10"
               ng-click="decreaseHours()">
         <i class="icon ion-chevron-down"></i></button>
@@ -13,7 +13,7 @@
     <span class="button-small col col-25">
       <button type="button" class="button button-clear button-small button-dark timePickerArrows marginBottom10"
               ng-click="increaseMinutes()"><i class="icon ion-chevron-up"></i></button>
-      <input type="text" placeholder="" ng-model="time.minutes" class="ipBoxes timePickerBoxText" disabled>
+      <div ng-bind="time.minutes" class="ipBoxes timePickerBoxText"></div>
       <button type="button" class="button button-clear button-small button-dark timePickerArrows marginTop10"
               ng-click="decreaseMinutes()"><i class="icon ion-chevron-down"></i></button>
     </span>
@@ -21,7 +21,7 @@
     <span class="button-small col col-25">
       <button type="button" class="button button-clear button-small button-dark timePickerArrows marginBottom10"
               ng-click="changeMeridian()"><i class="icon ion-chevron-up"></i></button>
-      <input type="text" placeholder="" ng-model="time.meridian" class="ipBoxes timePickerBoxText" disabled>
+      <div ng-bind="time.meridian" class="ipBoxes timePickerBoxText"></div>
       <button type="button" class="button button-clear button-small button-dark timePickerArrows marginTop10"
               ng-click="changeMeridian()"><i class="icon ion-chevron-down"></i></button>
     </span>
