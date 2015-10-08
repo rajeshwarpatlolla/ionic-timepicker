@@ -17,12 +17,10 @@
       },
       link: function (scope, element, attrs) {
 
-        console.log(scope.inputObj);
-
         var today = new Date();
-        var currentEpoch = today.getHours();
+        var currentEpoch = ((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60);
 
-        scope.inputEpochTime = scope.inputObj.inputEpochTime ? scope.inputObj.inputEpochTime : (currentEpoch * 60 * 60);
+        scope.inputEpochTime = scope.inputObj.inputEpochTime ? scope.inputObj.inputEpochTime : currentEpoch;
         scope.step = scope.inputObj.step ? scope.inputObj.step : 15;
         scope.format = scope.inputObj.format ? scope.inputObj.format : 24;
         scope.titleLabel = scope.inputObj.titleLabel ? scope.inputObj.titleLabel : 'Time Picker';
