@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ionic-timepicker by rajeshwarpatlolla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Ionic-timepicker</h1>
+      <h2 class="project-tagline">&#39;ionic-timepicker&#39; bower component for ionic framework applications</h2>
+      <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker" class="btn">View on GitHub</a>
+      <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><a href="https://www.bithound.io/github/rajeshwarpatlolla/ionic-timepicker"><img src="https://www.bithound.io/github/rajeshwarpatlolla/ionic-timepicker/badges/score.svg" alt="bitHound Score"></a></p>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction:</h2>
+
+<p>This is a <code>ionic-timepicker</code> bower component which can be used with any Ionic framework's application.</p>
+
+<p><a href="http://rajeshwarpatlolla.github.io/TimePickerForIonicFramework/demo/" title="Demo">View Demo</a> </p>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites.</h2>
+
+<p>1) node.js, npm, ionic, bower and gulp.</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use:</h2>
+
+<p>1) In your project repository install the ionic time picker using bower</p>
+
+<p><code>bower install ionic-timepicker --save</code></p>
+
+<p>2) Give the path of  <code>ionic-timepicker.bundle.min.js</code> in your <code>index.html</code> file.</p>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!-- path to ionic/angularjs js --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<p>3) In your application module inject the dependency <code>ionic-timepicker</code>, in order to work with the <code>ionic-timepicker</code> component</p>
+
+<div class="highlight highlight-source-js"><pre>angular.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>modulename<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>ionic<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>ionic-timepicker<span class="pl-pds">'</span></span>]){
+
+}</pre></div>
+
+<p>4) Use the below format in your template's corresponding controller</p>
+
+<div class="highlight highlight-source-js"><pre>$scope.timePickerObject <span class="pl-k">=</span> {
+  inputEpochTime<span class="pl-k">:</span> ((<span class="pl-k">new</span> <span class="pl-en">Date</span>()).<span class="pl-c1">getHours</span>() <span class="pl-k">*</span> <span class="pl-c1">60</span> <span class="pl-k">*</span> <span class="pl-c1">60</span>),  <span class="pl-c">//Optional</span>
+  step<span class="pl-k">:</span> <span class="pl-c1">15</span>,  <span class="pl-c">//Optional</span>
+  format<span class="pl-k">:</span> <span class="pl-c1">12</span>,  <span class="pl-c">//Optional</span>
+  titleLabel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>12-hour Format<span class="pl-pds">'</span></span>,  <span class="pl-c">//Optional</span>
+  setLabel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Set<span class="pl-pds">'</span></span>,  <span class="pl-c">//Optional</span>
+  closeLabel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Close<span class="pl-pds">'</span></span>,  <span class="pl-c">//Optional</span>
+  setButtonType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>button-positive<span class="pl-pds">'</span></span>,  <span class="pl-c">//Optional</span>
+  closeButtonType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>button-stable<span class="pl-pds">'</span></span>,  <span class="pl-c">//Optional</span>
+  <span class="pl-en">callback</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>) {    <span class="pl-c">//Mandatory</span>
+    timePickerCallback(val);
+  }
+};</pre></div>
+
+<p><strong>$scope.timePickerObject</strong> is the object, that we need to pass to the directive. The properties of this object are as follows.</p>
+
+<p><strong>a) inputEpochTime</strong> (Optional) : This the input epoch time to which the time will set initially. This is mandatory if you wish to show the time on the button, even before opening the popup. Default value is current time.</p>
+
+<p><strong>b) step</strong> (Optional) : This the minute increment / decrement step. Default value is <code>15</code></p>
+
+<p><strong>c) format</strong> (Optional) : This the format of the time. It can can two values i.e.<code>12</code> or <code>24</code>. Default value is <code>24</code></p>
+
+<p><strong>d) titleLabel</strong> (Optional) : The <code>Title</code> for the popup. Default value is <code>Time Picker</code></p>
+
+<p><strong>e) setLabel</strong> (Optional) : The label for the <code>Set</code> button. Default value is <code>Set</code></p>
+
+<p><strong>f) closeLabel</strong> (Optional) : The label for the <code>Close</code> button. Default value is <code>Close</code></p>
+
+<p><strong>g) setButtonType</strong> (Optional) : This the type of the <code>Set</code> button. Default value is <code>button-positive</code>. You can give any valid ionic framework's button classes. </p>
+
+<p><strong>h) closeButtonType</strong> (Optional) : This the type of the <code>Close</code> button. Default value is <code>button-stable</code>. You can give any valid ionic framework's button classes.</p>
+
+<p><strong>i) callback</strong> (Mandatory) : This the callback function, which will get the selected time in to the controller. You can define this function as follows.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">timePickerCallback</span>(<span class="pl-smi">val</span>) {
+  <span class="pl-k">if</span> (<span class="pl-k">typeof</span> (val) <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>undefined<span class="pl-pds">'</span></span>) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Time not selected<span class="pl-pds">'</span></span>);
+  } <span class="pl-k">else</span> {
+    <span class="pl-k">var</span> selectedTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>(val <span class="pl-k">*</span> <span class="pl-c1">1000</span>);
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Selected epoch is : <span class="pl-pds">'</span></span>, val, <span class="pl-s"><span class="pl-pds">'</span>and the time is <span class="pl-pds">'</span></span>, selectedTime.<span class="pl-c1">getUTCHours</span>(), <span class="pl-s"><span class="pl-pds">'</span>:<span class="pl-pds">'</span></span>, selectedTime.<span class="pl-c1">getUTCMinutes</span>(), <span class="pl-s"><span class="pl-pds">'</span>in UTC<span class="pl-pds">'</span></span>);
+  }
+}</pre></div>
+
+<p>5) Then use the below format in your template / html file</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">ionic</span><span class="pl-e">-timepicker</span> <span class="pl-e">input-obj</span>=<span class="pl-s"><span class="pl-pds">"</span>timePickerObject<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>button button-block button-positive overflowShow<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">standard</span><span class="pl-e">-time-meridian</span> <span class="pl-e">etime</span>=<span class="pl-s"><span class="pl-pds">'</span>timePickerObject.inputEpochTime<span class="pl-pds">'</span></span>&gt;&lt;/<span class="pl-ent">standard</span><span class="pl-e">-time-meridian</span>&gt;
+  &lt;/<span class="pl-ent">button</span>&gt;
+&lt;/<span class="pl-ent">ionic</span><span class="pl-e">-timepicker</span>&gt;</pre></div>
+
+<p><strong>a) ionic-timepicker</strong>  is the directive, to which we can pass required vales.</p>
+
+<p><strong>b) input-obj</strong> (Mandatory) : This is an object. We have to pass an object as shown above.</p>
+
+<p><a href="https://github.com/rajeshwarpatlolla/my-angularjs-directives#standard-time-meridian" title="standard-time-meridian">standard-time-meridian</a> is the directive i am using here to show the time in string format instead of the epoch value.
+You can also use any of my <a href="https://github.com/rajeshwarpatlolla/my-angularjs-directives">directives</a> to convert the epoch time to string format.</p>
+
+<h2>
+<a id="screen-shots" class="anchor" href="#screen-shots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screen Shots:</h2>
+
+<p><img src="https://lh6.googleusercontent.com/-UL18wuskI_A/VNHkGj8tdwI/AAAAAAAADdU/5tBbZcF6_es/w328-h494-no/TimePicker-1.jpg" alt="12-Hour" title="12-Hour">
+<img src="https://lh5.googleusercontent.com/-xgqgH2zRSuA/VNHkGQ6R8cI/AAAAAAAADdQ/5gGJ1nUqmA0/w328-h494-no/TimePicker-2.jpg" alt="24-Hour" title="24-Hour."></p>
+
+<h2>
+<a id="versions" class="anchor" href="#versions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versions:</h2>
+
+<h3>
+<a id="1-v010" class="anchor" href="#1-v010" aria-hidden="true"><span class="octicon octicon-link"></span></a>1) v0.1.0</h3>
+
+<p>The whole time picker functionality has been implemented, and can be installed with </p>
+
+<p>bower install ionic-timepicker --save</p>
+
+<h3>
+<a id="2-v011" class="anchor" href="#2-v011" aria-hidden="true"><span class="octicon octicon-link"></span></a>2) v0.1.1</h3>
+
+<p>Directive name has been modified.</p>
+
+<h3>
+<a id="3-v012" class="anchor" href="#3-v012" aria-hidden="true"><span class="octicon octicon-link"></span></a>3) v0.1.2</h3>
+
+<p>If the minutes and hours are less than 10, then 0 will be prepended to the value of minutes/hours.</p>
+
+<h3>
+<a id="4-v020" class="anchor" href="#4-v020" aria-hidden="true"><span class="octicon octicon-link"></span></a>4) v0.2.0</h3>
+
+<p>Callback function added to get the selected time in to the controller.</p>
+
+<h3>
+<a id="5-v021" class="anchor" href="#5-v021" aria-hidden="true"><span class="octicon octicon-link"></span></a>5) v0.2.1</h3>
+
+<p>Class names modified as per <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/41">this bug</a>.</p>
+
+<h3>
+<a id="6-v030" class="anchor" href="#6-v030" aria-hidden="true"><span class="octicon octicon-link"></span></a>6) v0.3.0</h3>
+
+<p>Features added to customize this component.</p>
+
+<h3>
+<a id="7-v040" class="anchor" href="#7-v040" aria-hidden="true"><span class="octicon octicon-link"></span></a>7) v0.4.0</h3>
+
+<p>Bug fixes : <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/48">#48</a>, <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/53">#53</a>, <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/51">#51</a></p>
+
+<p>PR : <a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/pull/54">#54</a>, </p>
+
+<p>Few additional enhancements added. </p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License:</h2>
+
+<p><a href="https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD" title="MIT">MIT</a></p>
+
+<h2>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact:</h2>
+
+<p>gmail : <a href="mailto:rajeshwar.patlolla@gmail.com">rajeshwar.patlolla@gmail.com</a></p>
+
+<p>github : <a href="https://github.com/rajeshwarpatlolla">https://github.com/rajeshwarpatlolla</a></p>
+
+<p>twitter : <a href="https://twitter.com/rajeshwar_9032">https://twitter.com/rajeshwar_9032</a></p>
+
+<p>facebook : <a href="https://www.facebook.com/rajeshwarpatlolla">https://www.facebook.com/rajeshwarpatlolla</a></p>
+
+<p>paypal : <a href="mailto:rajeshwar.patlolla@gmail.com">rajeshwar.patlolla@gmail.com</a></p>
+
+<p>Rate it or Comment : <a href="http://market.ionic.io/plugins/ionictimepicker">http://market.ionic.io/plugins/ionictimepicker</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/rajeshwarpatlolla/ionic-timepicker">Ionic-timepicker</a> is maintained by <a href="https://github.com/rajeshwarpatlolla">rajeshwarpatlolla</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
