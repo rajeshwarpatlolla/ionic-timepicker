@@ -9,7 +9,7 @@ This is a `ionic-timepicker` bower component which can be used with any Ionic fr
 
 ##Prerequisites.
 
-1) node.js, bower and gulp.
+1) node.js, npm, ionic, bower and gulp.
 
 ##How to use:
 
@@ -52,7 +52,7 @@ $scope.timePickerObject = {
 
 **$scope.timePickerObject** is the object, that we need to pass to the directive. The properties of this object are as follows.
 
-**a) inputEpochTime** (Optional) : This the input epoch time to which the time will set initially. This is mandatory if you wish to show the time on the button, even before opening the popup. Default value is current hour.
+**a) inputEpochTime** (Optional) : This the input epoch time to which the time will set initially. This is mandatory if you wish to show the time on the button, even before opening the popup. Default value is current time.
 
 **b) step** (Optional) : This the minute increment / decrement step. Default value is `15`
 
@@ -123,7 +123,14 @@ Callback function added to get the selected time in to the controller.
 Class names modified as per [this bug](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/41).
 
 ### 6) v0.3.0
-Features added to customize this component. 
+Features added to customize this component.
+
+### 7) v0.4.0
+Bug fixes : [#48](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/48), [#53](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/53), [#51](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/51)
+
+PR : [#54](https://github.com/rajeshwarpatlolla/ionic-timepicker/pull/54), 
+
+Few additional enhancements added. 
 
 ##License:
 [MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD "MIT")
@@ -140,4 +147,3 @@ facebook : https://www.facebook.com/rajeshwarpatlolla
 paypal : rajeshwar.patlolla@gmail.com
 
 Rate it or Comment : http://market.ionic.io/plugins/ionictimepicker
-
