@@ -20,6 +20,7 @@
         var today = new Date();
         var currentEpoch = ((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60);
 
+        //set up base variables and options for customization
         scope.inputEpochTime = scope.inputObj.inputEpochTime ? scope.inputObj.inputEpochTime : currentEpoch;
         scope.step = scope.inputObj.step ? scope.inputObj.step : 15;
         scope.format = scope.inputObj.format ? scope.inputObj.format : 24;
@@ -33,6 +34,7 @@
         scope.time = {hours: 0, minutes: 0, meridian: ""};
         var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
 
+        //Increasing the hours
         scope.increaseHours = function () {
           scope.time.hours = Number(scope.time.hours);
           if (obj.format == 12) {
@@ -48,6 +50,7 @@
           scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
         };
 
+        //Decreasing the hours
         scope.decreaseHours = function () {
           scope.time.hours = Number(scope.time.hours);
           if (obj.format == 12) {
@@ -63,22 +66,26 @@
           scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
         };
 
+        //Increasing the minutes
         scope.increaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
           scope.time.minutes = (scope.time.minutes + obj.step) % 60;
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
+        //Decreasing the minutes
         scope.decreaseMinutes = function () {
           scope.time.minutes = Number(scope.time.minutes);
           scope.time.minutes = (scope.time.minutes + (60 - obj.step)) % 60;
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
+        //Changing the meridian
         scope.changeMeridian = function () {
           scope.time.meridian = (scope.time.meridian === "AM") ? "PM" : "AM";
         };
 
+        //onclick of the button
         element.on("click", function () {
           if (typeof scope.inputObj.inputEpochTime === 'undefined' || scope.inputObj.inputEpochTime === null) {
             objDate = new Date();
