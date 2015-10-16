@@ -31,7 +31,7 @@
         scope.closeButtonType = scope.inputObj.closeButtonType ? scope.inputObj.closeButtonType : 'button-stable';
 
         var obj = {epochTime: scope.inputEpochTime, step: scope.step, format: scope.format};
-        scope.time = {hours: 0, minutes: 0, meridian: ""};
+        scope.time = {hours: 0, minutes: 0, seconds: 0, meridian: ""};
         var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
 
         //Increasing the hours
@@ -47,6 +47,11 @@
           if (obj.format == 24) {
             scope.time.hours = (scope.time.hours + 1) % 24;
           }
+          if (obj.format == 99) {
+            if (scope.time.hours < 100) {
+              scope.time.hours++;
+            }
+          } 
           scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
         };
 
@@ -63,6 +68,11 @@
           if (obj.format == 24) {
             scope.time.hours = (scope.time.hours + 23) % 24;
           }
+          if (obj.format == 99) {
+            if (scope.time.hours > 0) {
+              scope.time.hours--;
+            }
+          } 
           scope.time.hours = (scope.time.hours < 10) ? ('0' + scope.time.hours) : scope.time.hours;
         };
 
@@ -78,6 +88,20 @@
           scope.time.minutes = Number(scope.time.minutes);
           scope.time.minutes = (scope.time.minutes + (60 - obj.step)) % 60;
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
+        };
+
+        //Increasing the seconds
+        scope.increaseSeconds = function () {
+          scope.time.seconds = Number(scope.time.seconds);
+          scope.time.seconds = (scope.time.seconds + obj.step) % 60;
+          scope.time.seconds = (scope.time.seconds < 10) ? ('0' + scope.time.seconds) : scope.time.seconds;
+        };
+
+        //Decreasing the seconds
+        scope.decreaseSeconds = function () {
+          scope.time.seconds = Number(scope.time.seconds);
+          scope.time.seconds = (scope.time.seconds + (60 - obj.step)) % 60;
+          scope.time.seconds = (scope.time.seconds < 10) ? ('0' + scope.time.seconds) : scope.time.seconds;
         };
 
         //Changing the meridian
@@ -179,6 +203,51 @@
                     } else {
                       totalSec = scope.time.minutes * 60;
                     }
+                    scope.etime = totalSec;
+                    scope.inputObj.callback(scope.etime);
+                  }
+                }
+              ]
+            });
+          } else if (obj.format == 99) {
+
+            scope.time.hours = (objDate.getUTCHours());
+            scope.time.minutes = (objDate.getUTCMinutes());
+            scope.time.seconds = (objDate.getUTCSeconds());
+
+            scope.time.hours = (scope.time.hours < 10) ? ("0" + scope.time.hours) : (scope.time.hours);
+            scope.time.minutes = (scope.time.minutes < 10) ? ("0" + scope.time.minutes) : (scope.time.minutes);
+            scope.time.seconds = (scope.time.seconds < 10) ? ("0" + scope.time.seconds) : (scope.time.seconds);
+
+            $ionicPopup.show({
+              templateUrl: 'ionic-timepicker-duration.html',
+              title: scope.titleLabel,
+              subTitle: '',
+              scope: scope,
+              buttons: [
+                {
+                  text: scope.closeLabel,
+                  type: scope.closeButtonType,
+                  onTap: function (e) {
+                    scope.inputObj.callback(undefined);
+                  }
+                },
+                {
+                  text: scope.setLabel,
+                  type: scope.setButtonType,
+                  onTap: function (e) {
+
+                    scope.loadingContent = true;
+
+                    var totalSec = 0;
+
+                    if (scope.time.hours != 24) {
+                      totalSec = (scope.time.hours * 60 * 60) + (scope.time.minutes * 60);
+                    } else {
+                      totalSec = scope.time.minutes * 60;
+                    }
+                    totalSec += (scope.time.seconds * 1); // ensure we remove any leading zero
+
                     scope.etime = totalSec;
                     scope.inputObj.callback(scope.etime);
                   }

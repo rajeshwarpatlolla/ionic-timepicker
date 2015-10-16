@@ -6,6 +6,12 @@
   font-weight: bold;
 }
 
+.timePickerLetter {
+  padding-top: 48px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .timePickerArrows {
   width: 100%;
 }
