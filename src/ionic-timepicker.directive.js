@@ -108,7 +108,7 @@
             scope.time.hours = newval;
           }
           else {
-            scope.time.hours = "00";
+            //scope.time.hours = "00";
           }
         });
 
@@ -117,7 +117,7 @@
             scope.time.minutes = newval;
           }
           else {
-            scope.time.minutes = "00";
+            //scope.time.minutes = "00";
           }
         });
 
