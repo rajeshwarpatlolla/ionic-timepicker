@@ -34,6 +34,8 @@
         scope.time = {hours: 0, minutes: 0, meridian: ""};
         var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
 
+        var interval = null;
+        
         //Increasing the hours
         scope.increaseHours = function () {
           scope.time.hours = Number(scope.time.hours);
@@ -80,6 +82,22 @@
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
+        scope.startAutoIncrement = function(incrementFn) {
+            if (interval) {return;}
+            interval = setInterval(function () {
+                scope.$apply(function () {
+                    incrementFn();
+                });
+            }, 50);
+        }
+
+        scope.stopAutoIncrement = function () {
+            if (interval) {
+                window.clearInterval(interval);
+                interval = null;
+            }
+        }
+        
         //Changing the meridian
         scope.changeMeridian = function () {
           scope.time.meridian = (scope.time.meridian === "AM") ? "PM" : "AM";
