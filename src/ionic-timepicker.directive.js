@@ -88,7 +88,7 @@
                 scope.$apply(function () {
                     incrementFn();
                 });
-            }, 50);
+            }, 75);
         }
 
         scope.stopAutoIncrement = function () {
@@ -103,23 +103,23 @@
           scope.time.meridian = (scope.time.meridian === "AM") ? "PM" : "AM";
         };
 
-        scope.$watch('time.hours', function(newval) {
-          if(/^[0-9]{1,2}$/ig.test(newval)) {
-            scope.time.hours = newval;
-          }
-          else {
-            //scope.time.hours = "00";
-          }
-        });
-
-        scope.$watch('time.minutes', function(newval) {
-          if(/^[0-9]{1,2}$/ig.test(newval)) {
-            scope.time.minutes = newval;
-          }
-          else {
-            //scope.time.minutes = "00";
-          }
-        });
+//         scope.$watch('time.hours', function(newval) {
+//           if(/^[0-9]{1,2}$/ig.test(newval)) {
+//             scope.time.hours = newval;
+//           }
+//           else {
+//             //scope.time.hours = "00";
+//           }
+//         });
+// 
+//         scope.$watch('time.minutes', function(newval) {
+//           if(/^[0-9]{1,2}$/ig.test(newval)) {
+//             scope.time.minutes = newval;
+//           }
+//           else {
+//             //scope.time.minutes = "00";
+//           }
+//         });
 
         //onclick of the button
         element.on("click", function () {
