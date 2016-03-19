@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
 .timePickerColon {
-  padding-top: 120px;
+  padding-top: 60px !important;
   text-align: center;
   font-weight: bold;
 }
