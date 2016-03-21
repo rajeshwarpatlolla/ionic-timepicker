@@ -1,13 +1,14 @@
 /* Empty. Add your own CSS if you like */
 
 .timePickerColon {
-  padding-top: 40px;
+  padding-top: 60px !important;
   text-align: center;
   font-weight: bold;
 }
 
 .timePickerArrows {
   width: 100%;
+  font-size:40px;
 }
 
 .timePickerBoxText {

@@ -34,6 +34,8 @@
         scope.time = {hours: 0, minutes: 0, meridian: ""};
         var objDate = new Date(obj.epochTime * 1000);       // Epoch time in milliseconds.
 
+        var interval = null;
+        
         //Increasing the hours
         scope.increaseHours = function () {
           scope.time.hours = Number(scope.time.hours);
@@ -80,10 +82,44 @@
           scope.time.minutes = (scope.time.minutes < 10) ? ('0' + scope.time.minutes) : scope.time.minutes;
         };
 
+        scope.startAutoIncrement = function(incrementFn) {
+            if (interval) {return;}
+            interval = setInterval(function () {
+                scope.$apply(function () {
+                    incrementFn();
+                });
+            }, 75);
+        }
+
+        scope.stopAutoIncrement = function () {
+            if (interval) {
+                window.clearInterval(interval);
+                interval = null;
+            }
+        }
+        
         //Changing the meridian
         scope.changeMeridian = function () {
           scope.time.meridian = (scope.time.meridian === "AM") ? "PM" : "AM";
         };
+
+//         scope.$watch('time.hours', function(newval) {
+//           if(/^[0-9]{1,2}$/ig.test(newval)) {
+//             scope.time.hours = newval;
+//           }
+//           else {
+//             //scope.time.hours = "00";
+//           }
+//         });
+// 
+//         scope.$watch('time.minutes', function(newval) {
+//           if(/^[0-9]{1,2}$/ig.test(newval)) {
+//             scope.time.minutes = newval;
+//           }
+//           else {
+//             //scope.time.minutes = "00";
+//           }
+//         });
 
         //onclick of the button
         element.on("click", function () {
