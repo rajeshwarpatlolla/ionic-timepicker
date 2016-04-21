@@ -120,7 +120,7 @@ angular.module('ionic-timepicker.provider', [])
             var totalSec = 0;
 
             if ($scope.time.format == 12) {
-              if ($scope.time.meridian == 'PM') {
+              if ($scope.time.meridian == 'AM') {
                 $scope.time.hours = Number($scope.time.hours);
                 $scope.time.hours += 12;
               }

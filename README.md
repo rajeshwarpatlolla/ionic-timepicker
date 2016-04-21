@@ -157,15 +157,19 @@ Class names modified as per [this bug](https://github.com/rajeshwarpatlolla/ioni
 Features added to customize this component.
 
 ### 7) v0.4.0
-Bug fixes : [#48](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/48), [#53](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/53), [#51](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/51)
+#### Bug fixes : [#48](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/48), [#53](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/53), [#51](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/51)
 
-PR : [#54](https://github.com/rajeshwarpatlolla/ionic-timepicker/pull/54), 
+#### PR : [#54](https://github.com/rajeshwarpatlolla/ionic-timepicker/pull/54), 
 
 Few additional enhancements added. 
 
 ### 8) v0.5.0
 #### Features
 a) You can configure the ionic-timepicker from the config method. 
+
+### 9) v0.5.1
+#### BugFix : [#75](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/75)
+
 
 ##License:
 [MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD "MIT")
