@@ -96,8 +96,8 @@ angular.module('ionic-timepicker.provider', [])
         }
         $scope.time.minutes = rem / 60;
 
-        $scope.time.hours = $scope.time.hours.toFixed(0);
-        $scope.time.minutes = $scope.time.minutes.toFixed(0);
+        $scope.time.hours = Math.floor($scope.time.hours);
+        $scope.time.minutes = Math.floor($scope.time.minutes);
 
         if ($scope.time.hours.toString().length == 1) {
           $scope.time.hours = '0' + $scope.time.hours;
