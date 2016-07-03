@@ -2,7 +2,7 @@
  * Created by beenotung on 7/3/16.
  */
 declare namespace ionic {
-    module TimePicker {
+    module ionicTimePicker {
         interface ITimePickerOption {
             callback:(val?:any)=>void;
             setLabel?:string;
@@ -12,7 +12,7 @@ declare namespace ionic {
             step?:number;
         }
     }
-    class TimePicker {
-        openTimePicker(cakkbacoption:TimePicker.ITimePickerOption):void;
+    class ionicTimePicker {
+        openTimePicker(cakkbacoption:ionicTimePicker.ITimePickerOption):void;
     }
 }
