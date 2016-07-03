@@ -136,7 +136,10 @@ angular.module('ionic-timepicker.provider', [])
 
         buttons.push({
           text: $scope.mainObj.closeLabel,
-          type: 'button_close'
+          type: 'button_close',
+          onTap: function (e){
+            $scope.mainObj.callback(void 0);
+          }
         });
 
         $scope.popup = $ionicPopup.show({
