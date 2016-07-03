@@ -4,7 +4,7 @@
 declare namespace ionic {
     module ionicTimePicker {
         interface ITimePickerOption {
-            callback:(val?:any)=>void;
+            callback:(val?:number)=>void;
             setLabel?:string;
             closeLabel?:string
             inputTime?:number;
