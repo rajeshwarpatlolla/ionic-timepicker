@@ -170,6 +170,11 @@ a) You can configure the ionic-timepicker from the config method.
 ### 9) v0.5.1
 #### BugFix : [#75](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/75)
 
+### 10) v0.6.0
+#### BugFixes
+[#80](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/80)
+[#86](https://github.com/rajeshwarpatlolla/ionic-timepicker/issues/86)
+
 
 ##License:
 [MIT](https://github.com/rajeshwarpatlolla/ionic-timepicker/blob/master/LICENSE.MD "MIT")
