@@ -97,7 +97,28 @@ Apart from the config method, you can re configure all options in the controller
 
 In all the above steps, only mandatory property is the `callback` where you will get the selected time value.
 
-    
+### Access value with promise & detect that popup was closed
+To receive the value or detect the closing of the popup by pressing the close button.
+````javascript 
+ionicTimePicker.openTimePicker(ipObj1)
+ .then(function(val){
+       
+     if(typeof val === "undefined") {
+        // Popup closed
+     }else {
+        var selectedTime = new Date(val * 1000);
+        console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), 'H :', selectedTime.getUTCMinutes(), 'M');
+     }
+ })
+````
+
+
+### Close popup with code
+Close the popup without calling the ``callback``.
+````javascript 
+var picker = ionicTimePicker.openTimePicker(ipObj1);
+picker.close(); 
+````
 ##Screen Shots:
 
 Once you are successfully done with the above steps, you should be able to use this plugin.

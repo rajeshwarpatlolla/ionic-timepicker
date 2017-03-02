@@ -140,6 +140,7 @@ angular.module('ionic-timepicker.provider', [])
               totalSec = ($scope.time.hours * 60 * 60) + ($scope.time.minutes * 60);
             }
             $scope.mainObj.callback(totalSec);
+            return totalSec;
           }
         });
 
@@ -154,7 +155,7 @@ angular.module('ionic-timepicker.provider', [])
           cssClass: 'ionic_timepicker_popup',
           buttons: buttons
         });
-
+        return $scope.popup;
       };
 
       return provider;
