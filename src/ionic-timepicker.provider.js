@@ -24,6 +24,7 @@ angular.module('ionic-timepicker.provider', [])
       $scope.canDecreaseHours = false;
       $scope.canIncreaseMinutes = false;
       $scope.canDecreaseMinutes = false;
+      $scope.canAdjustMeridian = false;
       $scope.today = resetHMSM(new Date()).getTime();
       $scope.time = {};
 
@@ -57,63 +58,66 @@ angular.module('ionic-timepicker.provider', [])
         if (meridian === 'AM') {
           return hours;
         }
-        else if (meridian === 'PM') {
+        else if (hours !== 12 && meridian === 'PM') {
           return 12 + hours;
         }
+        return hours;
       }
 
       //hanlde picker step buttons
       function handlePickerStepButton() {
-        var pickerHours = getRailwayTime(Number($scope.time.hours), $scope.time.meridian);
-        var pickerMinutes = Number($scope.time.minutes);
+        if (angular.isDefined($scope.mainObj.maxTime)) {
+          var pickerHours = getRailwayTime(Number($scope.time.hours), $scope.time.meridian);
+          var pickerMinutes = Number($scope.time.minutes);
 
-        //handle hours
-        if (pickerHours === minTime.hours && pickerHours === maxTime.hours) {
-          $scope.canIncreaseHours = false;
-          $scope.canDecreaseHours = false;
-        }
-        else if (pickerHours > minTime.hours && pickerHours < maxTime.hours) {
-          $scope.canIncreaseHours = true;
-          $scope.canDecreaseHours = true;
-        }
-        else if (pickerHours === minTime.hours && pickerHours < maxTime.hours) {
-          $scope.canIncreaseHours = true;
-          $scope.canDecreaseHours = false;
-        }
-        else if (pickerHours > minTime.hours && pickerHours === maxTime.hours) {
-          $scope.canIncreaseHours = false;
-          $scope.canDecreaseHours = true;
-        }
+          //handle hours
+          if (pickerHours === minTime.hours && pickerHours === maxTime.hours) {
+            $scope.canIncreaseHours = false;
+            $scope.canDecreaseHours = false;
+          }
+          else if (pickerHours > minTime.hours && pickerHours < maxTime.hours) {
+            $scope.canIncreaseHours = true;
+            $scope.canDecreaseHours = true;
+          }
+          else if (pickerHours === minTime.hours && pickerHours < maxTime.hours) {
+            $scope.canIncreaseHours = true;
+            $scope.canDecreaseHours = false;
+          }
+          else if (pickerHours > minTime.hours && pickerHours === maxTime.hours) {
+            $scope.canIncreaseHours = false;
+            $scope.canDecreaseHours = true;
+          }
 
-        //handle minutes
-        var pickerTotalMinutes = Number(getRailwayTime(Number($scope.time.hours), $scope.time.meridian) * 60) + Number($scope.time.minutes);
-        var minTimeTotalMinutes = (minTime.hours * 60) + minTime.minutes;
-        var maxTimeTotalMinutes = (maxTime.hours * 60) + maxTime.minutes;
-        //check if its a valid time
-        if (pickerTotalMinutes <= maxTimeTotalMinutes) {
-          if (pickerTotalMinutes === minTimeTotalMinutes && pickerTotalMinutes === maxTimeTotalMinutes) {
-            $scope.canIncreaseMinutes = false;
-            $scope.canDecreaseMinutes = false;
+          //handle minutes
+          var pickerTotalMinutes = Number(getRailwayTime(Number($scope.time.hours), $scope.time.meridian) * 60) + Number($scope.time.minutes);
+          var minTimeTotalMinutes = (minTime.hours * 60) + minTime.minutes;
+          var maxTimeTotalMinutes = (maxTime.hours * 60) + maxTime.minutes;
+          //check if its a valid time
+          if (pickerTotalMinutes <= maxTimeTotalMinutes) {
+            if (pickerTotalMinutes === minTimeTotalMinutes && pickerTotalMinutes === maxTimeTotalMinutes) {
+              $scope.canIncreaseMinutes = false;
+              $scope.canDecreaseMinutes = false;
+            }
+            else if (pickerTotalMinutes === minTimeTotalMinutes && pickerTotalMinutes < maxTimeTotalMinutes) {
+              $scope.canIncreaseMinutes = true;
+              $scope.canDecreaseMinutes = false;
+            }
+            else if (pickerTotalMinutes > minTimeTotalMinutes && pickerTotalMinutes === maxTimeTotalMinutes) {
+              $scope.canIncreaseMinutes = false;
+              $scope.canDecreaseMinutes = true;
+            }
+            else if (pickerTotalMinutes > minTimeTotalMinutes && pickerTotalMinutes < maxTimeTotalMinutes) {
+              $scope.canIncreaseMinutes = true;
+              $scope.canDecreaseMinutes = true;
+            }
           }
-          else if (pickerTotalMinutes === minTimeTotalMinutes && pickerTotalMinutes < maxTimeTotalMinutes) {
-            $scope.canIncreaseMinutes = true;
-            $scope.canDecreaseMinutes = false;
-          }
-          else if (pickerTotalMinutes > minTimeTotalMinutes && pickerTotalMinutes === maxTimeTotalMinutes) {
+          else {
+            $scope.time.minutes = maxTime.minutes;
+            $scope.time.minutes = ($scope.time.minutes < 10) ? ('0' + $scope.time.minutes) : $scope.time.minutes;
+
             $scope.canIncreaseMinutes = false;
             $scope.canDecreaseMinutes = true;
           }
-          else if (pickerTotalMinutes > minTimeTotalMinutes && pickerTotalMinutes < maxTimeTotalMinutes) {
-            $scope.canIncreaseMinutes = true;
-            $scope.canDecreaseMinutes = true;
-          }
-        }
-        else {
-          $scope.time.minutes = maxTime.minutes;
-          $scope.time.minutes = ($scope.time.minutes < 10) ? ('0' + $scope.time.minutes) : $scope.time.minutes;
-          
-          $scope.canIncreaseMinutes = false;
-          $scope.canDecreaseMinutes = true;
         }
       }
 
@@ -129,11 +133,16 @@ angular.module('ionic-timepicker.provider', [])
       //Increasing the hours
       $scope.increaseHours = function () {
         $scope.time.hours = Number($scope.time.hours);
+        var minutes = Number($scope.time.minutes)
         if ($scope.mainObj.format == 12) {
+          //meridian update
+          if ($scope.time.hours === 11) {
+            toggleMeridian();
+          }
+
           if ($scope.time.hours != 12) {
             $scope.time.hours += 1;
           } else {
-            toggleMeridian();
             $scope.time.hours = 1;
           }
         }
@@ -148,10 +157,14 @@ angular.module('ionic-timepicker.provider', [])
       $scope.decreaseHours = function () {
         $scope.time.hours = Number($scope.time.hours);
         if ($scope.mainObj.format == 12) {
+          //meridian update
+          if ($scope.time.hours === 12) {
+            toggleMeridian();
+          }
+
           if ($scope.time.hours > 1) {
             $scope.time.hours -= 1;
           } else {
-            toggleMeridian();
             $scope.time.hours = 12;
           }
         }
@@ -291,9 +304,18 @@ angular.module('ionic-timepicker.provider', [])
           buttons: buttons
         });
 
-        maxTime = getHMMFromSeconds($scope.mainObj.maxTime, 24);
-        minTime = getHMMFromSeconds($scope.mainObj.inputTime, 24);
-        handlePickerStepButton();
+        if (angular.isDefined($scope.mainObj.maxTime)) {
+          maxTime = getHMMFromSeconds($scope.mainObj.maxTime, 24);
+          minTime = getHMMFromSeconds($scope.mainObj.inputTime, 24);
+          handlePickerStepButton();
+        }
+        else {
+          $scope.canIncreaseHours = true;
+          $scope.canDecreaseHours = true;
+          $scope.canIncreaseMinutes = true;
+          $scope.canDecreaseMinutes = true;
+          $scope.canAdjustMeridian = true;
+        }
       };
 
       return provider;

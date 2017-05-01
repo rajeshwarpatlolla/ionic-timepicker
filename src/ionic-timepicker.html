@@ -23,10 +23,10 @@
 
     <div class="col col-25" ng-if="time.format == 12">
       <button type="button" class="button button-clear button-small button-dark time_picker_arrows"
-              ng-click="changeMeridian()" ng-disabled=true><i class="icon ion-chevron-up"></i></button>
-      <div ng-bind="time.meridian" class="time_picker_box_text" ng-disabled=true></div>
+              ng-click="changeMeridian()" ng-disabled="!canAdjustMeridian"><i class="icon ion-chevron-up"></i></button>
+      <div ng-bind="time.meridian" class="time_picker_box_text" ng-disabled="!canAdjustMeridian"></div>
       <button type="button" class="button button-clear button-small button-dark time_picker_arrows"
-              ng-click="changeMeridian()" ng-disabled=true><i class="icon ion-chevron-down"></i></button>
+              ng-click="changeMeridian()" ng-disabled="!canAdjustMeridian"><i class="icon ion-chevron-down"></i></button>
     </div>
   </div>
 </div>
