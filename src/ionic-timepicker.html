@@ -5,7 +5,7 @@
       <button type="button" class="button button-clear button-small button-dark time_picker_arrows"
               ng-click="increaseHours()">
         <i class="icon ion-chevron-up"></i></button>
-      <div ng-bind="time.hours" class="time_picker_box_text"></div>
+      <input type="text" class="time_picker_box_text" ng-model="time.hours" ng-keyup="updateInputHours($event.keyCode)">   
       <button type="button" class="button button-clear button-small button-dark time_picker_arrows"
               ng-click="decreaseHours()">
         <i class="icon ion-chevron-down"></i></button>
@@ -15,7 +15,7 @@
     <div class="col col-25" ng-class="{'col-25':time.format == 24}">
       <button type="button" class="button button-clear button-small button-dark time_picker_arrows"
               ng-click="increaseMinutes()"><i class="icon ion-chevron-up"></i></button>
-      <div ng-bind="time.minutes" class="time_picker_box_text"></div>
+      <input type="text" class="time_picker_box_text" ng-model="time.minutes" ng-keyup="updateInputMinutes($event.keyCode)">
       <button type="button" class="button button-clear button-small button-dark time_picker_arrows"
               ng-click="decreaseMinutes()"><i class="icon ion-chevron-down"></i></button>
     </div>
