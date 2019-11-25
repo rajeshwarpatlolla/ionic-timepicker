@@ -1,23 +1,65 @@
-/* Empty. Add your own CSS if you like */
-
-.timePickerColon {
-  padding-top: 40px;
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+For example, you might change some of the default colors:
+*/
+.ionic_timepicker_popup .font_28px {
+  font-size: 28px;
+}
+.ionic_timepicker_popup .margin_zero {
+  margin: 0;
+}
+.ionic_timepicker_popup .padding_zero {
+  padding: 0;
+}
+.ionic_timepicker_popup .popup {
+  background-color: #ffffff;
+}
+.ionic_timepicker_popup .popup-head {
+  display: none;
+}
+.ionic_timepicker_popup .popup-body {
+  padding: 0;
+}
+.ionic_timepicker_popup .popup-buttons {
+  padding: 0;
+  min-height: 44px;
+  height: 44px;
+}
+.ionic_timepicker_popup .popup-buttons .button:not(:last-child) {
+  margin-right: 1px;
+}
+.ionic_timepicker_popup .padding_left_15px {
+  padding-left: 15px;
+}
+.ionic_timepicker_popup .heading {
+  height: 44px;
+  background-color: #009688;
+  color: #ffffff;
+  text-align: center;
+  line-height: 44px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.ionic_timepicker_popup .time_picker_colon {
+  padding-top: 45px;
   text-align: center;
   font-weight: bold;
 }
-
-.timePickerArrows {
+.ionic_timepicker_popup .time_picker_arrows {
   width: 100%;
 }
-
-.timePickerBoxText {
+.ionic_timepicker_popup .time_picker_box_text {
   height: 40px;
   text-align: center;
   border: 1px solid #dddddd;
   font-size: 16px;
-  padding-top: 5px;
+  line-height: 38px;
 }
-
-.overflowShow {
+.ionic_timepicker_popup .overflowShow {
   white-space: normal !important;
+}
+.ionic_timepicker_popup .button_set, .ionic_timepicker_popup .button_close {
+  background-color: #009688;
+  color: #ffffff;
 }
