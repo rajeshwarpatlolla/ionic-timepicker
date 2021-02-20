@@ -47,6 +47,7 @@ Your config method may look like this if you wish to setup the configuration. Bu
 .config(function (ionicTimePickerProvider) {
     var timePickerObj = {
       inputTime: (((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60)),
+      maxTime: (((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60)) + 3600, //3600 in seconds
       format: 12,
       step: 15,
       setLabel: 'Set',
@@ -61,13 +62,15 @@ The properties you can configure are as follows.
 
 **a) inputTime**(Optional) : This is the input epoch time which we can pass to the component. You can give any valid epoch time. Default value is `(((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60))`.
 
-**b) format**(Optional) : This takes two values 12 or 24. If we give 12 as the value, then it will be `12` format time picker or else if you give `24` as the value, then it will be 24 hour format time picker. Default value is `12`.
+**b) maxTime**(Optional) : This is the maximum time untill which the user is allowed to select the time.
 
-**c) step**(Optional) : This is the value which will be used to increment/decrement the values of the minutes. You can give any value like 10/15/20/30. Default value is `15`.
+**c) format**(Optional) : This takes two values 12 or 24. If we give 12 as the value, then it will be `12` format time picker or else if you give `24` as the value, then it will be 24 hour format time picker. Default value is `12`.
 
-**d) setLabel**(Optional) : The label for `Set` button. Default value is `Set`
+**d) step**(Optional) : This is the value which will be used to increment/decrement the values of the minutes. You can give any value like 10/15/20/30. Default value is `15`.
 
-**e) closeLabel**(Optional) : The label for `Close` button. Default value is `Close`
+**e) setLabel**(Optional) : The label for `Set` button. Default value is `Set`
+
+**f) closeLabel**(Optional) : The label for `Close` button. Default value is `Close`
 
 5) Inject `ionicTimePicker` in the controller, where you wish to use this component. Then using the below method you can call the timepicker.
 
