@@ -7,14 +7,16 @@ angular.module('ionic-timepicker.provider', [])
       closeLabel: 'Close',
       inputTime: (((new Date()).getHours() * 60 * 60) + ((new Date()).getMinutes() * 60)),
       format: 12,
-      step: 15
+      step: 15,
+      swipe: false,
+      swipeDelay: 50
     };
 
     this.configTimePicker = function (inputObj) {
       angular.extend(config, inputObj);
     };
 
-    this.$get = ['$rootScope', '$ionicPopup', function ($rootScope, $ionicPopup) {
+    this.$get = ['$rootScope', '$ionicPopup', '$timeout', function ($rootScope, $ionicPopup, $timeout) {
 
       var provider = {};
       var $scope = $rootScope.$new();
@@ -80,6 +82,62 @@ angular.module('ionic-timepicker.provider', [])
       //Changing the meridian
       $scope.changeMeridian = function () {
         $scope.time.meridian = ($scope.time.meridian === "AM") ? "PM" : "AM";
+      };
+
+      /**
+       * Increasing/decreasing minutes/hours/meridian by swipe gesture
+       *
+       * @param event - swipe event
+       * @param type {string} - hours, minutes, meridian
+       */
+      $scope.onSwipe = function (event, type) {
+        if ($scope.mainObj.swipe === false || (event.gesture.direction !== 'up' && event.gesture.direction !== 'down')) return;
+
+        var swipeEndPositionY = event.gesture.center.pageY;
+        var swipeDistance = event.gesture.distance;
+        var swipeStartPositionY, swipeDistancePercent;
+
+        if (event.gesture.direction === 'up') {
+          swipeStartPositionY = swipeEndPositionY + swipeDistance;
+          swipeDistancePercent = Math.floor((swipeDistance  / swipeStartPositionY) * 100);
+        } else {
+          swipeStartPositionY = swipeEndPositionY - swipeDistance;
+          swipeDistancePercent = Math.floor((swipeDistance  / (window.screen.height - swipeStartPositionY)) * 100);
+        }
+
+        if (type === 'hours') swipeHours(event.gesture.direction, swipeDistancePercent);
+        else if (type === 'minutes') swipeMinutes(event.gesture.direction, swipeDistancePercent);
+        else if (type === 'meridian') $scope.changeMeridian();
+      };
+
+      /**
+       * Increasing/decreasing hours based on swipe gesture distance
+       *
+       * @param type {sring} - up, down
+       * @param swipeDistancePercent {number} - swipe gesture distance  in percent unit
+       */
+      function swipeHours (type, swipeDistancePercent) {
+        for(var i = 0; i < ($scope.mainObj.format * (swipeDistancePercent / 100)); i++) {
+          $timeout( function() {
+            if (type === 'down') $scope.decreaseHours();
+            else if (type === 'up') $scope.increaseHours();
+          }, $scope.mainObj.swipeDelay + (i * $scope.mainObj.swipeDelay));
+        }
+      };
+
+      /**
+       * Increasing/decreasing minutes based on swipe gesture distance
+       *
+       * @param type {sring} - up, down
+       * @param swipeDistancePercent {number} - swipe gesture distance  in percent unit
+       */
+      function swipeMinutes (type, swipeDistancePercent) {
+        for(var i = 0; i < ((60 / $scope.mainObj.step) * (swipeDistancePercent / 100)); i++) {
+          $timeout( function() {
+            if (type === 'down') $scope.decreaseMinutes();
+            else if (type === 'up') $scope.increaseMinutes();
+          }, $scope.mainObj.swipeDelay + (i * $scope.mainObj.swipeDelay));
+        }
       };
 
       function setMinSecs(ipTime, format) {
